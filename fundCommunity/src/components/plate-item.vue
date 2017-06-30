@@ -1,5 +1,5 @@
 <template>
-    <a class="plate-item" @click="onClick">
+     <a class="plate-item" @click="onClick">
         <slot name="plate-item-img"></slot>
         <slot name="plate-item-text"></slot>
     </a>
@@ -10,23 +10,12 @@
     text-align: center; 
 }
 
-.plates-item span {
-    height: 50%;
-}
-
-
 </style>
 
 <script>
     export default {
         props: {
             itemname: {
-                type: String
-            },
-            itemimg:{
-                type: String
-            },
-            itemtext:{
                 type: String
             }
         },

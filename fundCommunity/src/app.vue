@@ -1,15 +1,21 @@
 <template>
   <div class="wrapper">
-    <router-view></router-view>
+    <router-view  style="flex:1"></router-view>
+    <!--<text>hello</text>-->
   </div>
   
 </template>
 
+<style>
+body {
+  overflow: hidden;
+}
+</style>
+
+
 <style scoped>
   .wrapper { 
-    margin: 0px; 
-    padding: 0px;
-    width: 100%;
+    /*width: 750px;*/
   }
 
   
@@ -22,6 +28,6 @@
       return {
         
       };
-    }
+    }, 
   }
 </script>

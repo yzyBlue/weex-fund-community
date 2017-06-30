@@ -54,7 +54,7 @@ export default {
     },
     login: function (event) {
 
-      /*if (this.userName.length < 1) {
+      if (this.userName.length < 1) {
         console.log('请输入用户名', event)
         modal.toast({
           message: '请输入用户名',
@@ -68,7 +68,7 @@ export default {
           duration: 0.8
         })
         return;
-      }*/
+      }
       var user = {
                   'username': this.userName,
                   'password': this.userPassword
@@ -87,6 +87,7 @@ export default {
         }, callback);
     },
     loginCallback: function (response) {
+      
       console.log("callback");
       if (response.ok) {
         console.log(response.data)
@@ -100,14 +101,13 @@ export default {
           this.$store.state.logging = true;
           this.$store.state.username = this.userName;
           console.log(this.$store.state.username);
-          this.$router.push({ path: '/appentry/index' })
+          this.$router.push({ path: '/' })
         } else {
             console.log('登录失败');
             modal.toast({
                 message: '登录失败',
                 duration: 0.8
             });
-            this.$router.push({ path: '/appentry/index' })
         }
         
     } else {
@@ -116,7 +116,6 @@ export default {
           message: 'network error',
           duration: 0.8
         });
-        this.$router.push({ path: '/appentry/index' })
       }
     },
   },
@@ -128,20 +127,25 @@ export default {
 </script>
 
 <style scoped>
-  body{background-color:#f8f8f8; height:;}
+  body{background-color:#f8f8f8;}
   .wrapper { 
     align-items: center; 
     background-color:#f8f8f8; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background-color: white;*/
   }
   .barPos {
     height:80px;
-    width:100%;
+    width:750px;
   }
   .title { 
     font-size: 54px; 
     font-weight:700;
     font-family: -apple-system-font, SimHei, BlinkMacSystemFont, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
   }
   .logo { 
     width: 360px; 

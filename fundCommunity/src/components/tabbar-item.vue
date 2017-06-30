@@ -1,32 +1,31 @@
 <template>
-     <a class="tabbar-item" :class="{'selected-item': selecteditem == itemname }"  @click="onClick">
-        <slot name="item-img"></slot>
-        <span class="tabbar-item-text"><slot></slot></span>
-    </a>
+     <div class="tabbar-item"  @click="onClick">
+          <div><slot></slot></div>
+        <div class="tabbar-item-img" ><slot name="item-img"></slot></div>
+        <div class="tabbar-item-text"><slot name="item-text"></slot></div>
+    </div>
 </template>
 
 <style scoped>
 .tabbar-item {
-    flex: auto;
-    text-align: center;
+    flex: 1;
+    padding:0px 50px;
     align-items: center;
-    margin: 5px auto;
+    justify-content: center;
 }
 
-.tabbar-item span {
-    display: block;
-    font-size: 16px;
-    color: #949494;
-    text-align: center;
-    height: 50%;
+.tabbar-item-img {
+    align-items: center;
 }
-
+.tabbar-item-text {
+    
+}
 .selected-item .tabbar-item-text {
     color: red;
 }
 
 .tabbar-item .tabbar-item-img {
-    padding-top: 8px;
+    padding-top: 10px;
 }
 
 
@@ -36,20 +35,18 @@
     export default {
         data () {
             return {
+
             }
         },
         props: {
             itemname: {
                 type: String
-            },
-            selecteditem: {
-                type: String,
             }
         },
         methods: {
             onClick: function () {
                 this.$router.push(this.itemname);
-                this.$parent.$emit('itemchange', this.itemname);
+                this.$emit('itemchange', this.itemname);
             }
         }
     }

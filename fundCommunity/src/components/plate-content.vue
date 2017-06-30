@@ -70,7 +70,7 @@
     methods: {
       goToIndex: function () {
         console.log('gotoindex');
-        this.$router.push({path: '/appentry/index'});
+        this.$router.push({path: '/index'});
       }
     }
   }

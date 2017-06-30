@@ -32,26 +32,33 @@
   .wrapper { 
     align-items: center; 
     background-color:#f8f8f8; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background-color: white;*/
   }
   .barPos {
     height:80px;
     width:100%;
-    background-color:#E2E827; 
+    background-color:#afddff; 
     border: 1px solid #E3E3E3;
     border-radius: 12px;
-    padding: 15px;
+    padding: 20px;
   }
   .backIcon {
-    background-image: url('http://cmbecsns01.softecs.cmbkx.com/lb63-14-cmbcareerimg.11/backArr.png');
-    background-size: cover;
+    background-image: url('http://cmbecsns01.softecs.cmbkx.com/lb00-00-weexproject.11/arrow_back.png');
+    background-size: contain;
     background-repeat: no-repeat;
     float: left;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
   }
   .title { 
-    font-size: 48px; 
+    font-size: 54px; 
     font-weight:700;
+    font-family: -apple-system-font, SimHei, BlinkMacSystemFont, 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   .logo { 
     width: 360px; 
@@ -184,7 +191,17 @@ import apiURL from '../common/api';
                       duration: 0.8
                     })  
                     return;  
-                }   
+                }
+
+                if (this.userPassword.length <= 5)//简单
+                {
+                    console.log('不可用(太弱)!',event) 
+                    modal.toast({
+                      message: '不可用(太弱)!',
+                      duration: 0.8
+                    })  
+                    return;
+                }
 
                 var user = {
                   'userid': 0,
@@ -225,7 +242,7 @@ import apiURL from '../common/api';
                   this.$store.state.logging = true;
                   this.$store.state.username = this.userName;
                   console.log(this.$store.state.username);
-                  this.$router.push({ path: '/appentry/index' })
+                  this.$router.push({ path: '/login' })
                 } else {
                     console.log('注册失败');
                     modal.toast({

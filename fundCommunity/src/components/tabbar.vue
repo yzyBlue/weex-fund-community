@@ -1,33 +1,32 @@
 <template>
-    <div class="tabbar" @itemchange="itemChange">
+    <div class="tabbar">
        <slot></slot>
     </div>
 </template>
 
 <style scoped>
 .tabbar {
-    display: flex;
     flex-direction: row;
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     right: 0;
-    z-index: 10;
-    width: 100%;
+    /*width: 700px;*/
     overflow: hidden;
-    height: 120px;
-    border-top: 2px solid #e1e1e1;
+    height: 150px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #f5f5f9;
+    /*border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;*/
 }
 </style>
 
 <script>
-    import tabbaritem from './tabbar-item.vue';
+  
     export default {
         methods: {
-            itemChange: function (newItem) {
-                //console.log('itemchange')
-                this.$parent.$emit('selectedchange', newItem);
-            }
+           
         }
     }
 </script>
